@@ -1,0 +1,97 @@
+$grid-gap: 1px;
+
+.maze-view {
+    border: 2px solid white;
+    box-shadow: 1em 1em 0 0 rgba(black, 0.3);
+
+    position: relative;
+
+    $size: calc(
+        var(--range, 10) * (var(--cell-size) + $grid-gap)
+        + 3 * $grid-gap
+    );
+    width: $size;
+    height: $size;
+    overflow: hidden;
+
+    margin: 1em auto;
+}
+
+.maze {
+    display: grid;
+    grid-template-columns: repeat(var(--maze-size, 20), var(--cell-size, 40px));
+    grid-template-rows: repeat(var(--maze-size, 20), var(--cell-size, 40px));
+    gap: $grid-gap;
+
+    background-color: #0a0a0a;
+
+    $unit: calc(var(--cell-size) + $grid-gap);
+
+    // initial translate
+    transform: translate(
+        calc(clamp((var(--maze-size) - var(--range)) * -1, 4 - var(--player-x), 0) * $unit),
+        calc(clamp((var(--maze-size) - var(--range)) * -1, 4 - var(--player-y), 0) * $unit),
+    );
+
+    transition: transform 75ms ease-in-out;
+}
+
+.cell {
+    background-color: #bbb;
+}
+
+.cell--wall {
+    background-color: #2b2b2b;
+}
+
+.cell--start {
+    background-color: mix(#bbb, red, 70%);
+}
+
+.cell--exit {
+    background-color: mix(#bbb, green, 70%);
+}
+
+.player {
+    // ratio of the size of a cell and the one of the player
+    $cell-ratio: 0.75;
+    width: calc($cell-ratio * var(--cell-size));
+    height: calc($cell-ratio * var(--cell-size));
+
+    background-color: hsl(260, 80%, 30%);
+    border-radius: 3px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // offset because the player is slightly smaller than a cell
+    $offset: calc(0.125 * var(--cell-size));
+    $unit: calc(var(--cell-size) + $grid-gap);
+
+    transform: translate(
+        calc(clamp(
+            var(--range) - (var(--maze-size) - var(--player-x)), 
+            4, 
+            var(--player-x)) 
+            * $unit + $offset),
+        calc(clamp(
+            var(--range) - (var(--maze-size) - var(--player-y)), 
+            4, 
+            var(--player-y))  * $unit + $offset)
+    );
+
+    transition: transform 75ms ease-in-out;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em;
+
+    padding: 1em 0;
+
+    & > * {
+        flex-grow: 1;
+    }
+}

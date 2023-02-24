@@ -1,0 +1,5 @@
+<svg viewBox="0 0 250 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="250" height="300" fill="#333333" />
+    <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M200 50H50V250H100V200H150V250H200V50ZM150 100H100V150H150V100Z" fill="white" />
+</svg>

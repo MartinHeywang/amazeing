@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <script type="module" src="./src/ts/main.ts" defer></script>
+        <link rel="stylesheet" href="./src/scss/main.scss" />
+
+        <title>Amazeing &bull; Sors du labyrinthe !</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header__title">
+                    <img src="/icon.svg" class="header__title__icon" />
+                    <div class="header__title__text"><span>maze</span>ing</div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="maze-view">
+                <div class="maze"></div>
+                <div class="player"></div>
+            </div>
+
+            <div class="controls">
+                <button class="controls__move-button" data-direction="up">Haut</button>
+                <button class="controls__move-button" data-direction="right">Droite</button>
+                <button class="controls__move-button" data-direction="left">Gauche</button
+                ><button class="controls__move-button" data-direction="down">Bas</button>
+            </div>
+        </div>
+    </body>
+</html>

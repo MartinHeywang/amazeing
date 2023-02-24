@@ -1,0 +1,30 @@
+.header {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    background-color: #111;
+
+    text-align: center;
+}
+
+.header__title {
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: .5em;
+
+    .header__title__icon {
+        // factor b/w the icon and the text : 1.5
+        // must remain the same so both scales in parallel
+        max-height: clamp(2.7rem, 7.5vw + 1.5rem, 4.5rem);
+    }
+
+    .header__title__text {
+        font-size: clamp(1.8rem, 5vw + 1rem, 3rem);
+        hyphens: auto;
+
+        span {
+            color: hsl(260, 95%, 80%);
+        }
+    }
+}

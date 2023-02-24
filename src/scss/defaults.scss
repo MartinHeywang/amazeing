@@ -1,0 +1,19 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: "Inter", sans-serif;
+    
+    background-color: #222;
+    color: #eee;
+}
+
+.container {
+    width: min(768px, 85%);
+    margin: auto;
+}
